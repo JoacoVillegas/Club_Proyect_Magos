@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpt2owdqwrrrb"]
+
+[ext_resource type="PackedScene" uid="uid://baub3swng7qfn" path="res://mage_1.tscn" id="1_s1gk4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qc7jh"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(79, 55)
+zoom = Vector2(5, 5)
+
+[node name="Mage1" parent="." instance=ExtResource("1_s1gk4")]
+position = Vector2(77, 52)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(78, 79)
+shape = SubResource("WorldBoundaryShape2D_qc7jh")

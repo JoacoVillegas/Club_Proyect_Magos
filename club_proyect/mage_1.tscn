@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://baub3swng7qfn"]
+
+[ext_resource type="Script" path="res://mage_1.gd" id="1_lo6c4"]
+[ext_resource type="Texture2D" uid="uid://7urg7an0drse" path="res://AnimationSheet_Character.png" id="1_yp3wk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0s24"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfijl"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc4ai"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kopdk"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u4on"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uailn"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pibs0"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rlrf"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vm0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0s24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfijl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc4ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kopdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u4on")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uailn")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pibs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rlrf")
+}],
+"loop": true,
+"name": &"quieto",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3yml"]
+size = Vector2(15, 26)
+
+[node name="Mage1" type="CharacterBody2D"]
+script = ExtResource("1_lo6c4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6vm0v")
+animation = &"movimiento"
+frame_progress = 0.832015
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 3)
+shape = SubResource("RectangleShape2D_e3yml")
