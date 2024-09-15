@@ -1,7 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://baub3swng7qfn"]
+[gd_scene load_steps=21 format=3 uid="uid://baub3swng7qfn"]
 
 [ext_resource type="Script" path="res://mage_1.gd" id="1_lo6c4"]
 [ext_resource type="Texture2D" uid="uid://7urg7an0drse" path="res://AnimationSheet_Character.png" id="1_yp3wk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t50j4"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrv5j"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a73d0"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q16j"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8cu"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxlxp"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gesdr"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmgnn"]
+atlas = ExtResource("1_yp3wk")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0s24"]
 atlas = ExtResource("1_yp3wk")
@@ -37,6 +69,35 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6vm0v"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t50j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrv5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a73d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q16j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxlxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gesdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmgnn")
+}],
+"loop": true,
+"name": &"destello",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b0s24")
@@ -80,9 +141,14 @@ script = ExtResource("1_lo6c4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6vm0v")
-animation = &"movimiento"
-frame_progress = 0.832015
+animation = &"destello"
+frame_progress = 0.90915
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 3)
 shape = SubResource("RectangleShape2D_e3yml")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 4)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
