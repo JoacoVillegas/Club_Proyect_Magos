@@ -137,18 +137,15 @@ animations = [{
 size = Vector2(15, 26)
 
 [node name="Mage1" type="CharacterBody2D"]
+position = Vector2(179.147, -16.2418)
 script = ExtResource("1_lo6c4")
+jugador = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6vm0v")
 animation = &"destello"
-frame_progress = 0.90915
+frame_progress = 0.992895
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 3)
 shape = SubResource("RectangleShape2D_e3yml")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2, 4)
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
