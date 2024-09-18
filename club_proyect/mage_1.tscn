@@ -94,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fmgnn")
 }],
-"loop": true,
+"loop": false,
 "name": &"destello",
 "speed": 12.0
 }, {
@@ -144,8 +144,10 @@ jugador = 2
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6vm0v")
 animation = &"destello"
-frame_progress = 0.992895
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 3)
 shape = SubResource("RectangleShape2D_e3yml")
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
