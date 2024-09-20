@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqh22adfhj6xk"]
+
+[ext_resource type="Script" path="res://orbe.gd" id="1_5h1fp"]
+[ext_resource type="Texture2D" uid="uid://c02m0akxvlsxp" path="res://icon.svg" id="2_esyuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1rqb"]
+size = Vector2(26.125, 25)
+
+[node name="Orbe" type="Node2D"]
+script = ExtResource("1_5h1fp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12.8125, 12.5625)
+scale = Vector2(0.206055, 0.194336)
+texture = ExtResource("2_esyuk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12.9375, 12.5)
+shape = SubResource("RectangleShape2D_j1rqb")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
