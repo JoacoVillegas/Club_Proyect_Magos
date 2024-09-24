@@ -16,8 +16,9 @@ func setTipoOrbe(typeOrb: String) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	setTipoOrbe(tipoOrbe) # Replace with function body.
+	print("¡UN orbe ha aparecido!")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(self.global_position)
+	pass
