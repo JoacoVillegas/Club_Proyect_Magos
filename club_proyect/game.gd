@@ -3,6 +3,7 @@ extends Node2D
 var timeNewOrbe = 30
 var createJustOne = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -23,13 +24,15 @@ func generar_orbe() -> void:
 	
 	var rng = RandomNumberGenerator.new()
 	
-	
 	var posX = rng.randf_range(-300, 300)
 	var posY = rng.randf_range(-300, 100)
 	var position = Vector2(posX, posY)
-	newOrbe.set_global_position(position)
 	
+	newOrbe.set_global_position(position)
+	#¿por que area2d es null?
 	add_child(newOrbe)
+
+
 
 
 func _on_orb_timer_timeout() -> void:

@@ -80,14 +80,18 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	 # Replace with function body.
+	 
 	print("SI LEES ESTO, ENTONCES EL MAGO SABE LEER CARTELES.")
 	print("el mana del mago es: ")
 	if body.jugador == 1:
 		
-		print(self.manaJugador1)
+		print(body.manaJugador1)
+		print(body.manaJugador2)
 	else:
-		print(self.manaJugador2)
-
+		print(body.manaJugador1)
+		print(body.manaJugador2)
+	
+	print(body.get_class())
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "destello":
 		

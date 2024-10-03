@@ -23,5 +23,5 @@ position = Vector2(12.9375, 12.5)
 shape = SubResource("RectangleShape2D_j1rqb")
 metadata/_edit_group_ = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="collisionTileMap" from="Area2D" to="." method="_on_area_2d_collision_tile_map"]
