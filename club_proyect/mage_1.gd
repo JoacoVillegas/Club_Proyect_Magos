@@ -1,6 +1,9 @@
+
 extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var main = get_tree().get_root().get_node("map1")
+@onready var habMago1 = load("res://bola_de_fuego.tscn")
 
 @export_range(1,2) var jugador : int
 
@@ -76,11 +79,24 @@ func _physics_process(delta: float) -> void:
 				newPosition = Vector2(self.global_position.x, -50 + self.global_position.y)
 		self.set_global_position(newPosition)
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("habilidad"):
+		throw_Ability1()
+
+func throw_Ability1() -> void:
+	if self.manaJugador1 >= 50:
+		self.manaJugador1 -= 50
+		var habilidad = fireBall.create(self, main)
+		
+		
+		main.add_child(habilidad)
+	else:
+		print("¡Necesito mas mana!")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	 # Replace with function body.
-	 
+	
 	print("SI LEES ESTO, ENTONCES EL MAGO SABE LEER CARTELES.")
 	print("el mana del mago es: ")
 	if body.jugador == 1:
@@ -92,6 +108,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print(body.manaJugador2)
 	
 	print(body.get_class())
+	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "destello":
 		

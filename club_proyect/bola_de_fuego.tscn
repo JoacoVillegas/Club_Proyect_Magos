@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://brq7us5rdsbkh"]
+
+[ext_resource type="Texture2D" uid="uid://btkvqh5l1w3qe" path="res://fireball_0.png" id="1_tnb4b"]
+[ext_resource type="Script" path="res://bola_de_fuego.gd" id="1_ud67c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nswqm"]
+size = Vector2(39, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ding"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3vx4"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1ut3"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4na4d"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gajvw"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dcpx"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v55pw"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(384, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xumgy"]
+atlas = ExtResource("1_tnb4b")
+region = Rect2(448, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ja7k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ding")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3vx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1ut3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4na4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gajvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dcpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v55pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xumgy")
+}],
+"loop": true,
+"name": &"derecha",
+"speed": 14.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Bola_de_fuego" type="Area2D"]
+script = ExtResource("1_ud67c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_nswqm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.5, -3.5)
+scale = Vector2(0.796875, 0.890625)
+sprite_frames = SubResource("SpriteFrames_6ja7k")
+animation = &"derecha"
+frame_progress = 0.0557329
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
