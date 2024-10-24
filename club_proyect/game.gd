@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	
 
 func generar_orbe() -> void:
-	var orbeEscena = load("res://orbe.tscn")
+	var orbeEscena = load("res://orbe/orbe.tscn")
 	var newOrbe = orbeEscena.instantiate()
 	
 	newOrbe.tipoOrbe = "mana"

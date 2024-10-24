@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var main = get_tree().get_root().get_node("map1")
-@onready var habMago1 = load("res://bola_de_fuego.tscn")
+@onready var habMago1 = load("res://character/bola_de_fuego.tscn")
 
 @export_range(1,2) var jugador : int
 

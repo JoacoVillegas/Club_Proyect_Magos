@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqh22adfhj6xk"]
 
-[ext_resource type="Script" path="res://orbe.gd" id="1_5h1fp"]
+[ext_resource type="Script" path="res://orbe/orbe.gd" id="1_5h1fp"]
 [ext_resource type="Texture2D" uid="uid://c02m0akxvlsxp" path="res://icon.svg" id="2_esyuk"]
-[ext_resource type="Script" path="res://area_2d.gd" id="3_7x62a"]
+[ext_resource type="Script" path="res://orbe/area_2d.gd" id="3_7x62a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1rqb"]
 size = Vector2(26.125, 25)

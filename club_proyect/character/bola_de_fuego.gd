@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 #@onready var habMago1 = load("res://bola_de_fuego.tscn")
 
-const habMago1 = preload("res://bola_de_fuego.tscn")
+const habMago1 = preload("res://character/bola_de_fuego.tscn")
 
 var direction : float
 var spawnPos : Vector2

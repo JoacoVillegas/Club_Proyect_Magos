@@ -1,39 +1,39 @@
 [gd_scene load_steps=14 format=3 uid="uid://brq7us5rdsbkh"]
 
-[ext_resource type="Texture2D" uid="uid://btkvqh5l1w3qe" path="res://fireball_0.png" id="1_tnb4b"]
-[ext_resource type="Script" path="res://bola_de_fuego.gd" id="1_ud67c"]
-[ext_resource type="Script" path="res://HitBox.gd" id="3_e5ja7"]
+[ext_resource type="Script" path="res://character/bola_de_fuego.gd" id="1_krs1s"]
+[ext_resource type="Texture2D" uid="uid://btkvqh5l1w3qe" path="res://character/fireball_0.png" id="2_dbvlu"]
+[ext_resource type="Script" path="res://utilities/HitBox.gd" id="3_u8rql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ding"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(0, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3vx4"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(64, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1ut3"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(128, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4na4d"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(192, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gajvw"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(256, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dcpx"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(320, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v55pw"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(384, 256, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xumgy"]
-atlas = ExtResource("1_tnb4b")
+atlas = ExtResource("2_dbvlu")
 region = Rect2(448, 256, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ja7k"]
@@ -76,7 +76,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hccw"]
 
 [node name="Bola_de_fuego" type="CharacterBody2D"]
-script = ExtResource("1_ud67c")
+script = ExtResource("1_krs1s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6.5, -3.5)
@@ -87,7 +87,7 @@ autoplay = "derecha"
 frame_progress = 0.00549107
 
 [node name="HitBox" type="Area2D" parent="."]
-script = ExtResource("3_e5ja7")
+script = ExtResource("3_u8rql")
 damage = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
