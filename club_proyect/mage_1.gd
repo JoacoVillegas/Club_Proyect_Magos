@@ -81,33 +81,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("habilidad"):
-		throw_Ability1()
+		throw_Ability1(delta)
 
-func throw_Ability1() -> void:
+func throw_Ability1(delta: float) -> void:
 	if self.manaJugador1 >= 50:
 		self.manaJugador1 -= 50
-		var habilidad = fireBall.create(self, main)
-		
+		var habilidad = fireBall.create(self, delta)
 		
 		main.add_child(habilidad)
 	else:
+		#TODO: impletar mana
 		print("¡Necesito mas mana!")
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	 # Replace with function body.
-	
-	print("SI LEES ESTO, ENTONCES EL MAGO SABE LEER CARTELES.")
-	print("el mana del mago es: ")
-	if body.jugador == 1:
-		
-		print(body.manaJugador1)
-		print(body.manaJugador2)
-	else:
-		print(body.manaJugador1)
-		print(body.manaJugador2)
-	
-	print(body.get_class())
+	pass
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if animated_sprite.animation == "destello":

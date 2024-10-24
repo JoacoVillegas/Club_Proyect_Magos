@@ -71,6 +71,7 @@ habilidad={
 [layer_names]
 
 2d_physics/layer_1="Mapa"
+2d_physics/layer_2="Hitbox"
 
 [rendering]
 

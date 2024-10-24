@@ -14,7 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 			body.manaJugador1 += 10
 		else:
-			print("Wow MAGO2 eres pro")
+			
 			body.manaJugador2 += 10
 		orbe.queue_free()
 	
