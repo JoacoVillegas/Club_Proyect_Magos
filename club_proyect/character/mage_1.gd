@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 				newPosition = Vector2(self.global_position.x, -50 + self.global_position.y)
 		self.set_global_position(newPosition)
 	move_and_slide()
-	
+	#Si space es presionado, se dirige a la funcion throw_ability.
 	if Input.is_action_just_pressed("habilidad"):
 		throw_Ability1(delta)
 
@@ -96,6 +96,9 @@ func throw_Ability1(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	 # Replace with function body.
+	print(self.vidaJugador)
+	print("O es este el verdadero:")
+	print(body.vidaJugador)
 	pass
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -107,4 +110,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			animated_sprite.play("movimiento")
 		else:
 			animated_sprite.play("quieto")
+			
+func bajar_dano(dano: int, victima: CharacterBody2D) -> void:
+	print("le baja la vida al papu")
+	victima.vidaJugador -= dano
+	print(victima.vidaJugador)
 	

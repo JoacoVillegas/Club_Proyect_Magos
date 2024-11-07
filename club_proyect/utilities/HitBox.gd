@@ -1,8 +1,8 @@
 class_name HitBox
 extends Area2D
 
-@export var damage := 0
-
+@export var damage := 20
+@onready var parentHitBox = self.get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	collision_layer = 2
