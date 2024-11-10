@@ -11,11 +11,14 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
 #Variables del jugador, vida, mana, tal vez un booleano para indicar que la habilidad aun no puede ser usada
-var vidaJugador = 100
+var vidaJugador = 300
 var manaJugador1 = 0
 var manaJugador2 = 0
 
 var is_teleporting = false  # Nueva variable para controlar si el mago está haciendo "destello"
+var is_takingdmg = false
+var is_defeated = false
+
 func get_input():
 	var input_dir
 	if jugador == 1:
@@ -37,7 +40,9 @@ func _physics_process(delta: float) -> void:
 	
 	var directionX := velocity.x
 	var directionY := velocity.y
-
+	
+	if is_defeated:
+		return
 	# Check for teleportation input
 	if directionX > 0:
 		animated_sprite.flip_h = false
@@ -45,9 +50,10 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		
 	if not (directionX or directionY):
-		animated_sprite.play("quieto")
+		if (not is_takingdmg):
+			animated_sprite.play("quieto")
 	else:
-		if not (is_teleporting):
+		if (not (is_teleporting) and not (is_takingdmg)):
 			animated_sprite.play("movimiento")
 	
 	if Input.is_action_just_pressed("teleportacion") and (directionX or directionY):
@@ -110,9 +116,22 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			animated_sprite.play("movimiento")
 		else:
 			animated_sprite.play("quieto")
-			
+
+
+#Metodos relacionados a la colision con el mago(?			
 func bajar_dano(dano: int, victima: CharacterBody2D) -> void:
-	print("le baja la vida al papu")
 	victima.vidaJugador -= dano
-	print(victima.vidaJugador)
 	
+	victima.parpadeo_rojo()
+	
+	if (victima.vidaJugador <= 0):
+		victima.is_defeated = true
+		victima.animated_sprite.play("derrota")
+	
+func parpadeo_rojo() -> void:
+	animated_sprite.modulate = Color(1, 0, 0)  # Cambia el color a rojo
+	is_takingdmg = true
+	animated_sprite.play("dano") 
+	await animated_sprite.animation_finished  # Tiempo del parpadeo
+	animated_sprite.modulate = Color(1, 1, 1)  # Vuelve al color normal
+	is_takingdmg = false
