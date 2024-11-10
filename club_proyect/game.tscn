@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpt2owdqwrrrb"]
+[gd_scene load_steps=9 format=4 uid="uid://bpt2owdqwrrrb"]
 
 [ext_resource type="PackedScene" uid="uid://baub3swng7qfn" path="res://character/mage_1.tscn" id="1_s1gk4"]
 [ext_resource type="Script" path="res://game.gd" id="1_xr2ow"]
 [ext_resource type="Texture2D" uid="uid://ckgsvgagrs1af" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="2_vnmky"]
+[ext_resource type="Script" path="res://canvas_layer.gd" id="4_vi81u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qc7jh"]
 normal = Vector2(0.999916, 0.0129859)
@@ -194,5 +195,27 @@ shape = SubResource("CircleShape2D_b50ea")
 wait_time = 3.0
 autostart = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_vi81u")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_right = 156.0
+offset_bottom = 41.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 69.0
+offset_right = 155.0
+offset_bottom = 31.0
+text = "REINICIAR"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "SALIR"
+
 [connection signal="body_entered" from="Area2D" to="Mage1" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="OrbTimer" to="." method="_on_orb_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="CanvasLayer" method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button2" to="CanvasLayer" method="_on_exit_pressed"]
